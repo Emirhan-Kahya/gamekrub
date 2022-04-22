@@ -1,9 +1,15 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gamekrub/utils/colors.dart';
+import 'package:get/get.dart';
+
+//screen
+import 'package:gamekrub/screens/auth_screens/sign_up_screen.dart';
 
 //utils
 import 'package:gamekrub/utils/dimension.dart';
+import 'package:gamekrub/utils/colors.dart';
+
 //widgets
 import 'package:gamekrub/widgets/mBigText.dart';
 import 'package:gamekrub/widgets/mButton.dart';
@@ -18,6 +24,21 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
+
+    void _login(){
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+      if(email.isEmpty){
+        print("Email can not be empty");
+      }else if(!GetUtils.isEmail(email)){
+        print("Type in a valid email address");
+      }else if(password.isEmpty){
+        print("Password can not be empty");
+      }else{
+        print("Successfully");
+      }
+    }
+
     return Scaffold(
       backgroundColor: Color(0xFFF1F2F3),
       body: SingleChildScrollView(
@@ -94,7 +115,8 @@ class SignInScreen extends StatelessWidget {
                       AppTextField(
                           textEditingController: passwordController,
                           text: "*******",
-                          isObscure: true),
+                          isObscure: true,
+                      ),
                     ],
                   ),
                 ],
@@ -117,7 +139,8 @@ class SignInScreen extends StatelessWidget {
                   style: TextStyle(color: AppColors.textColor2),
                   children: [
                     TextSpan(
-                      text: "Create",
+                      recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpScreen(), transition: Transition.fade),
+                      text: "Register",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: AppColors.buttonColor,
