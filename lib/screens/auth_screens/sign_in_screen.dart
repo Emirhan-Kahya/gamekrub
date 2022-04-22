@@ -45,20 +45,22 @@ class SignInScreen extends StatelessWidget {
               Column(
                 children: [
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      OtherSignMethods(
-                        press: () {},
-                        icons: FontAwesomeIcons.facebookF,
-                        width: Dimension.width100 * 1.7,
-                        height: Dimension.height100 / 1.5,
+                      Expanded(
+                        child: OtherSignMethods(
+                          press: () {},
+                          icons: FontAwesomeIcons.facebookF,
+                          height: Dimension.height100 / 1.5,
+                        ),
                       ),
-                      OtherSignMethods(
-                        press: () {},
-                        icons: FontAwesomeIcons.google,
-                        width: Dimension.width100 * 1.7,
-                        height: Dimension.height100 / 1.5,
+                      SizedBox(width: Dimension.width10),
+                      Expanded(
+                        child: OtherSignMethods(
+                          press: () {},
+                          icons: FontAwesomeIcons.google,
+                          height: Dimension.height100 / 1.5,
+                        ),
                       ),
                     ],
                   ),
