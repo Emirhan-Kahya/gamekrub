@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gamekrub/utils/colors.dart';
 
 //utils
 import 'package:gamekrub/utils/dimension.dart';
@@ -106,6 +107,24 @@ class SignInScreen extends StatelessWidget {
                 height: 65,
                 textColor: Colors.white,
                 textSize: 20,
+              ),
+              SizedBox(
+                height: Dimension.height10,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: "Don\'t have an account? ",
+                  style: TextStyle(color: AppColors.textColor2),
+                  children: [
+                    TextSpan(
+                      text: "Create",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.buttonColor,
+                      ),
+                    ),
+                  ]
+                ),
               ),
             ],
           ),
