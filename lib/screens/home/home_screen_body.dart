@@ -27,24 +27,43 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           Container(
             height: 200,
             child: PageView.builder(
-              itemCount: img.length,
-              itemBuilder: (context, index) {
-                return Stack(
-                  children: [
-                    Container(
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimension.radius30),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/images/" + img[index]),
+                itemCount: img.length,
+                itemBuilder: (context, index) {
+                  return Stack(
+                    children: [
+                      Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage("assets/images/" + img[index]),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                );
-              }
-            ),
+                      Positioned(
+                        bottom:5,
+                        left:0,
+                        right:0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Wrap(
+                                children: List.generate(
+                              img.length,
+                              (i) => Container(
+                                width: i == index ? 18 : 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.white),
+                              ),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                }),
           ),
         ],
       ),
