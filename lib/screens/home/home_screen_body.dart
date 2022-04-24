@@ -42,7 +42,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ),
             SizedBox(height: Dimension.height20 / 2),
             Container(
-              height: 163,
+              height: Dimension.height163,
               child: PageView.builder(
                 pageSnapping: true,
                 //onPageChanged: _onChanged,
