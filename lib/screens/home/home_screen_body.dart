@@ -19,6 +19,7 @@ class HomeScreenBody extends StatefulWidget {
 }
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
+  late PageController _pageController = PageController(viewportFraction: 0.95);
   List img = ["banner1.png", "banner-2.jpg", "banner-3.jpg"];
 
   @override
@@ -26,37 +27,30 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Container(
+        margin: EdgeInsets.only(top: Dimension.height40, left: Dimension.width20, right: Dimension.width20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Slider
+            SearchBarButton(
+              press: () {
+                Get.to(
+                      () => SearchScreen(),
+                  transition: Transition.rightToLeftWithFade,
+                );
+              },
+            ),
+            SizedBox(height: Dimension.height20 / 2),
             Container(
-              height: 180,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 163,
-                    child: PageView.builder(
-                      pageSnapping: true,
-                      //onPageChanged: _onChanged,
-                      itemCount: img.length,
-                      itemBuilder: (context, index) {
-                        return _buildPageItem(index);
-                      },
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SearchBarButton(
-                      press: () {
-                        Get.to(
-                          () => SearchScreen(),
-                          transition: Transition.rightToLeftWithFade,
-                        );
-                      },
-                    ),
-                  ),
-                ],
+              height: Dimension.height163,
+              child: PageView.builder(
+                pageSnapping: true,
+                //onPageChanged: _onChanged,
+                itemCount: img.length,
+                controller: _pageController,
+                itemBuilder: (context, index) {
+                  return _buildPageItem(index);
+                },
               ),
             ),
             //Categories
@@ -132,7 +126,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return GestureDetector(
       onTap: () {},
       child: Container(
+        margin: EdgeInsets.only(right: Dimension.width5),
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
           image: DecorationImage(
             fit: BoxFit.fill,
             image: AssetImage("assets/images/" + img[index]),

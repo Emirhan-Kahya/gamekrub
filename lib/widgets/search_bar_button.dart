@@ -16,7 +16,6 @@ class SearchBarButton extends StatelessWidget {
       child: Container(
         width: Dimension.screenWidth,
         height: Dimension.height40,
-        margin: EdgeInsets.symmetric(horizontal: Dimension.width40),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
@@ -42,7 +41,7 @@ class SearchBarButton extends StatelessWidget {
           children: [
             Icon(FontAwesomeIcons.magnifyingGlass, size: Dimension.icon24, color: AppColors.textColor2),
             SizedBox(width: Dimension.width10),
-            mSmallText(text: "Search", letterSpacing: 0, fontWeight: FontWeight.bold),
+            mSmallText(text: "Search", letterSpacing: 0, fontWeight: FontWeight.w500),
           ],
         ),
       ),
