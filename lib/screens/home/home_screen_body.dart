@@ -31,11 +31,11 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           children: [
             //Slider
             Container(
-              height: Dimension.screenHeight / 2,
+              height: 180,
               child: Stack(
                 children: [
                   Container(
-                    height: Dimension.screenHeight / 2.1,
+                    height: 163,
                     child: PageView.builder(
                       pageSnapping: true,
                       //onPageChanged: _onChanged,
