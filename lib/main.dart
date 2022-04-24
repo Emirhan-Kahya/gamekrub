@@ -13,8 +13,6 @@ void main() {
 
 class mainApp extends StatelessWidget {
   const mainApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

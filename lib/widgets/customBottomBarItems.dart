@@ -17,8 +17,8 @@ class mBottomBarItem extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        width: isSelected ? 35 : 30,
-        height: isSelected ? 35 : 30,
+        width: isSelected ? 25 : 20,
+        height: isSelected ? 25 : 20,
         child: Image.asset(icon, color: isSelected ? AppColors.buttonBackgroundColor : Colors.grey[500]),
       ),
     );

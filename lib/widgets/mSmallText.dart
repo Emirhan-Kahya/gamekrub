@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class mSmallText extends StatelessWidget {
   Color? color;
   final String text;
-  double fontSize, height;
+  double? fontSize, height, letterSpacing;
+  FontWeight? fontWeight;
 
   mSmallText({
     Key? key,
@@ -11,6 +12,8 @@ class mSmallText extends StatelessWidget {
     this.color = const Color(0xFFA0AAB3),
     this.fontSize = 14,
     this.height = 1.2,
+    this.letterSpacing = 0.2,
+    this.fontWeight = FontWeight.w500,
   }) : super(key: key);
 
   @override
@@ -22,9 +25,9 @@ class mSmallText extends StatelessWidget {
         color: color,
         fontSize: fontSize,
         height: height,
-        fontWeight: FontWeight.w500,
+        fontWeight: fontWeight,
         fontFamily: 'Quicksand',
-        letterSpacing: 0.2
+        letterSpacing: letterSpacing,
       ),
     );
   }
