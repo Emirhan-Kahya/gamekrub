@@ -19,7 +19,7 @@ class HomeScreenBody extends StatefulWidget {
 }
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
-  late PageController _pageController = PageController(viewportFraction: 0.95);
+  late PageController _pageController = PageController(viewportFraction: 0.9);
   List img = ["banner1.png", "banner-2.jpg", "banner-3.jpg"];
 
   @override
@@ -42,7 +42,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ),
             SizedBox(height: Dimension.height20 / 2),
             Container(
-              height: Dimension.height163,
+              height: 163,
               child: PageView.builder(
                 pageSnapping: true,
                 //onPageChanged: _onChanged,
