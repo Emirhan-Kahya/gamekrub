@@ -3,7 +3,8 @@ class SpecialDealModel {
   String? name;
   String? description;
   String? img;
-  int? price;
+  double? price;
+  double? discount;
 
   SpecialDealModel({
     this.id,
@@ -11,6 +12,7 @@ class SpecialDealModel {
     this.name,
     this.description,
     this.price,
+    this.discount,
   });
 
 
@@ -21,8 +23,9 @@ List specialData = [
   SpecialDealModel(
     id: 1,
     name: "Resident Evil Village",
-    description: "The game that defined the survival-horror genre is back.",
+    description: "The game that defined the survival-horror genre is back back back.",
     price: 150,
+    discount: 130,
     img: "https://cdn.akamai.steamstatic.com/steam/apps/1196590/capsule_616x353.jpg",
   ),
   SpecialDealModel(
@@ -30,6 +33,7 @@ List specialData = [
     name: "Resident Evil Village 1",
     description: "The game that defined the survival-horror genre is back.",
     price: 200,
+    discount: 180,
     img: "https://cdn.cloudflare.steamstatic.com/steam/apps/389430/capsule_616x353.jpg",
   ),
   SpecialDealModel(
@@ -37,6 +41,7 @@ List specialData = [
     name: "Resident Evil Village 2",
     description: "The game that defined the survival-horror genre is back.",
     price: 250,
+    discount: 245,
     img: "https://cdn.akamai.steamstatic.com/steam/apps/1196590/capsule_616x353.jpg",
   ),
   SpecialDealModel(
@@ -44,6 +49,7 @@ List specialData = [
     name: "Resident Evil Village  3",
     description: "The game that defined the survival-horror genre is back.",
     price: 300,
+    discount: 298,
     img: "https://cdn.akamai.steamstatic.com/steam/apps/1196590/capsule_616x353.jpg",
   ),
 ];

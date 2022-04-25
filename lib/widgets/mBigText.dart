@@ -9,7 +9,7 @@ class mBigText extends StatelessWidget {
   mBigText({
     Key? key,
     required this.text,
-    this.color = const Color(0xFF16252F),
+    this.color = const Color(0xFF3B3F5C),
     this.fontSize = 24,
     this.overflow = TextOverflow.ellipsis,
   }) : super(key: key);

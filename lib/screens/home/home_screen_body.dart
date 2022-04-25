@@ -28,25 +28,27 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
       physics: BouncingScrollPhysics(),
       child: Container(
         margin: EdgeInsets.only(
-          top: Dimension.height40,
-          left: Dimension.width20,
-          right: Dimension.width20,
-        ),
+            top: Dimension.height40, bottom: Dimension.height20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //Slider
-            SearchBarButton(
-              press: () {
-                Get.to(
-                  () => SearchScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                );
-              },
-            ),
-            SizedBox(height: Dimension.height20 / 2),
+            //Search
             Container(
-              height: Dimension.width163,
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: SearchBarButton(
+                press: () {
+                  Get.to(
+                    () => SearchScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: Dimension.height20 / 1.5),
+            //Slider
+            Container(
+              height: Dimension.width150,
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: PageView.builder(
                 pageSnapping: true,
                 itemCount: img.length,
@@ -58,6 +60,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             //Categories
             SizedBox(height: Dimension.height40),
             Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -83,7 +86,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             //Popular Games
             SizedBox(height: Dimension.height40),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width5),
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -101,303 +104,13 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ),
             SizedBox(height: Dimension.height20),
             Container(
-              height: 95,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
-              ),
+              height: 110,
               child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: specialData.length,
+                physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                        right: Dimension.width20, bottom: 5, top: 5),
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(Dimension.radius15 / 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 1,
-                          blurRadius: 1,
-                          offset: Offset(1, -1),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 95,
-                          width: 148,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft:
-                                  Radius.circular(Dimension.radius15 / 2),
-                              topLeft: Radius.circular(Dimension.radius15 / 2),
-                            ),
-                            color: Colors.red,
-                            image: DecorationImage(
-                              image: NetworkImage(specialData[index].img),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                              top: Dimension.height10,
-                              left: Dimension.width10 * 1.5,
-                              bottom: Dimension.height10,
-                          ),
-                          height: 86,
-                          width: 170,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimension.radius15 / 2),
-                              bottomRight:
-                                  Radius.circular(Dimension.radius15 / 2),
-                            ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              mSmallText(
-                                text: specialData[index].name,
-                                color: AppColors.textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Dimension.fontSize30 / 2.3,
-                              ),
-                              mBigText(
-                                text: specialData[index].description,
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2.6,
-                              ),
-                              mBigText(
-                                text: "\$" + specialData[index].price.toString(),
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            //Popular Streaming
-            SizedBox(height: Dimension.height20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  mSmallText(text: "Popular Streaming", color: AppColors.textColor),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.angleRight,
-                      size: Dimension.icon24,
-                      color: AppColors.textColor2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: Dimension.height20),
-            Container(
-              height: 95,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
-              ),
-              child: ListView.builder(
-                shrinkWrap: true,
                 itemCount: specialData.length,
-                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                        right: Dimension.width20, bottom: 5, top: 5),
-                    decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.circular(Dimension.radius15 / 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 1,
-                          blurRadius: 1,
-                          offset: Offset(1, -1),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 95,
-                          width: 148,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft:
-                              Radius.circular(Dimension.radius15 / 2),
-                              topLeft: Radius.circular(Dimension.radius15 / 2),
-                            ),
-                            color: Colors.red,
-                            image: DecorationImage(
-                              image: NetworkImage(specialData[index].img),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: Dimension.height10,
-                            left: Dimension.width10 * 1.5,
-                            bottom: Dimension.height10,
-                          ),
-                          height: 86,
-                          width: 170,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimension.radius15 / 2),
-                              bottomRight:
-                              Radius.circular(Dimension.radius15 / 2),
-                            ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              mSmallText(
-                                text: specialData[index].name,
-                                color: AppColors.textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Dimension.fontSize30 / 2.3,
-                              ),
-                              mBigText(
-                                text: specialData[index].description,
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2.6,
-                              ),
-                              mBigText(
-                                text: "\$" + specialData[index].price.toString(),
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            //Top Selling Games
-            SizedBox(height: Dimension.height20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  mSmallText(text: "Top Selling Games", color: AppColors.textColor),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.angleRight,
-                      size: Dimension.icon24,
-                      color: AppColors.textColor2,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: Dimension.height20),
-            Container(
-              height: 95,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
-              ),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: specialData.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                        right: Dimension.width20, bottom: 5, top: 5),
-                    decoration: BoxDecoration(
-                      borderRadius:
-                      BorderRadius.circular(Dimension.radius15 / 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 1,
-                          blurRadius: 1,
-                          offset: Offset(1, -1),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 95,
-                          width: 148,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              bottomLeft:
-                              Radius.circular(Dimension.radius15 / 2),
-                              topLeft: Radius.circular(Dimension.radius15 / 2),
-                            ),
-                            color: Colors.red,
-                            image: DecorationImage(
-                              image: NetworkImage(specialData[index].img),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: Dimension.height10,
-                            left: Dimension.width10 * 1.5,
-                            bottom: Dimension.height10,
-                          ),
-                          height: 86,
-                          width: 170,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimension.radius15 / 2),
-                              bottomRight:
-                              Radius.circular(Dimension.radius15 / 2),
-                            ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              mSmallText(
-                                text: specialData[index].name,
-                                color: AppColors.textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Dimension.fontSize30 / 2.3,
-                              ),
-                              mBigText(
-                                text: specialData[index].description,
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2.6,
-                              ),
-                              mBigText(
-                                text: "\$" + specialData[index].price.toString(),
-                                color: AppColors.textColor2,
-                                fontSize: Dimension.fontSize30 / 2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
+                  return _buildListViewItem(index);
                 },
               ),
             ),
@@ -405,6 +118,64 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
         ),
       ),
     );
+  }
+
+  Widget _buildListViewItem(int index) {
+    return Container(
+                  margin: EdgeInsets.only(left: Dimension.width20, top: Dimension.height10, bottom: Dimension.height10),
+                  width: 340,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        right: 10,
+                        child: Container(
+                          height: 100,
+                          width: 180,
+                          padding: EdgeInsets.symmetric(horizontal: Dimension.width20, vertical: Dimension.height10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.only(
+                                  topRight: Radius.circular(Dimension.radius15),
+                                  bottomRight: Radius.circular(Dimension.radius15),
+                                ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              mBigText(text: specialData[index].name, fontSize: 13),
+                              SizedBox(height: Dimension.height5),
+                              mBigText(text: specialData[index].description, fontSize: 12, color: AppColors.textColor.withOpacity(0.7)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:
+                          BorderRadius.only(
+                            topLeft: Radius.circular(Dimension.radius15),
+                            bottomLeft: Radius.circular(Dimension.radius15),
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius:
+                          BorderRadius.only(
+                            topLeft: Radius.circular(Dimension.radius15),
+                            bottomLeft: Radius.circular(Dimension.radius15),
+                          ),
+                          child: Image(
+                            image: NetworkImage(specialData[index].img),
+                            width: 160,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
   }
 
   Widget _buildPageItem(int index) {
