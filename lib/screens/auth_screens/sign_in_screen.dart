@@ -40,7 +40,7 @@ class SignInScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Color(0xFFF1F2F3),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
@@ -48,7 +48,8 @@ class SignInScreen extends StatelessWidget {
               top: Dimension.height40 * 1.5,
               right: Dimension.width20,
               left: Dimension.width20,
-              bottom: Dimension.height40),
+              bottom: Dimension.height40,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -59,7 +60,7 @@ class SignInScreen extends StatelessWidget {
                 children: [
                   mBigText(text: "Login", fontSize: Dimension.fontSize30),
                   SizedBox(height: Dimension.height10),
-                  mSmallText(text: "Access account", fontSize: 16),
+                  mSmallText(text: "Access account", fontSize: Dimension.fontSize16),
                 ],
               ),
               SizedBox(height: Dimension.height40),
@@ -72,22 +73,26 @@ class SignInScreen extends StatelessWidget {
                       Expanded(
                         child: OtherSignMethods(
                           press: () {},
+                          text: "Facebook",
                           icons: FontAwesomeIcons.facebookF,
                           height: Dimension.height100 / 1.5,
+                          color: AppColors.buttonColor2,
                         ),
                       ),
                       SizedBox(width: Dimension.width10),
                       Expanded(
                         child: OtherSignMethods(
                           press: () {},
+                          text: "Gmail",
                           icons: FontAwesomeIcons.google,
                           height: Dimension.height100 / 1.5,
+                          color: AppColors.gmailColor,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: Dimension.height20),
-                  mSmallText(text: "or Login with email"),
+                  mSmallText(text: "or login with email"),
                 ],
               ),
               SizedBox(height: Dimension.height20),
@@ -98,11 +103,13 @@ class SignInScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Email", fontSize: 18),
+                      mBigText(text: "Email", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                           textEditingController: emailController,
-                          text: "example@mail.com"),
+                          text: "example@mail.com",
+                          icon: FontAwesomeIcons.solidEnvelope,
+                      ),
                     ],
                   ),
                   SizedBox(height: Dimension.height20),
@@ -110,12 +117,13 @@ class SignInScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Password", fontSize: 18),
+                      mBigText(text: "Password", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                           textEditingController: passwordController,
                           text: "*******",
                           isObscure: true,
+                          icon: FontAwesomeIcons.lock,
                       ),
                     ],
                   ),
@@ -123,12 +131,12 @@ class SignInScreen extends StatelessWidget {
               ),
               SizedBox(height: Dimension.height40),
               mButton(
-                press: () {},
-                text: "Sign In",
+                press: _login,
+                text: "Login",
                 width: double.maxFinite,
-                height: 65,
+                height: Dimension.height20 * 3,
                 textColor: Colors.white,
-                textSize: 20,
+                textSize: Dimension.fontSize18,
               ),
               SizedBox(
                 height: Dimension.height10,
@@ -136,14 +144,14 @@ class SignInScreen extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: "Don\'t have an account? ",
-                  style: TextStyle(color: AppColors.textColor2),
+                  style: TextStyle(color: AppColors.textColor),
                   children: [
                     TextSpan(
                       recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpScreen(), transition: Transition.fade),
                       text: "Register",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: AppColors.buttonColor,
+                        color: AppColors.buttonColor2,
                       ),
                     ),
                   ]

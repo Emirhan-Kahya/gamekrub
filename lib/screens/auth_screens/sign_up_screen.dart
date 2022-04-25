@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gamekrub/screens/auth_screens/sign_in_screen.dart';
 import 'package:get/get.dart';
+
+//screen
+import 'package:gamekrub/screens/auth_screens/sign_up_screen.dart';
 
 //utils
 import 'package:gamekrub/utils/dimension.dart';
@@ -21,19 +23,43 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
-    var usernameController = TextEditingController();
     var passwordController = TextEditingController();
+    var nameController = TextEditingController();
     var confirmPasswordController = TextEditingController();
+
+    void _register(){
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+      String confirmPassword = confirmPasswordController.text.trim();
+      String name = nameController.text.trim();
+      if(email.isEmpty){
+        print("Email can not be empty");
+      }else if(!GetUtils.isEmail(email)){
+        print("Type in a valid email address");
+      }else if(name.isEmpty){
+        print("Name can not be empty");
+      } else if(password.isEmpty){
+        print("Password can not be empty");
+      }else if(confirmPassword.isEmpty) {
+        print("Confirm Password can not be empty");
+      }else if(password != confirmPassword) {
+        print("Password and Confirm Password don\'t match");
+      }else{
+        print("Successfully");
+      }
+    }
+
     return Scaffold(
-      backgroundColor: Color(0xFFF1F2F3),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
           margin: EdgeInsets.only(
-              top: Dimension.height40 * 1.5,
-              right: Dimension.width20,
-              left: Dimension.width20,
-              bottom: Dimension.height40),
+            top: Dimension.height40 * 1.5,
+            right: Dimension.width20,
+            left: Dimension.width20,
+            bottom: Dimension.height40,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -42,9 +68,7 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  mBigText(text: "Sign Up", fontSize: Dimension.fontSize30),
-                  SizedBox(height: Dimension.height10),
-                  mSmallText(text: "Create an account", fontSize: 16),
+                  mBigText(text: "Register", fontSize: Dimension.fontSize30),
                 ],
               ),
               SizedBox(height: Dimension.height40),
@@ -57,40 +81,32 @@ class SignUpScreen extends StatelessWidget {
                       Expanded(
                         child: OtherSignMethods(
                           press: () {},
+                          text: "Facebook",
                           icons: FontAwesomeIcons.facebookF,
                           height: Dimension.height100 / 1.5,
+                          color: AppColors.buttonColor2,
                         ),
                       ),
                       SizedBox(width: Dimension.width10),
                       Expanded(
                         child: OtherSignMethods(
                           press: () {},
+                          text: "Gmail",
                           icons: FontAwesomeIcons.google,
                           height: Dimension.height100 / 1.5,
+                          color: AppColors.gmailColor,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: Dimension.height20),
-                  mSmallText(text: "or Sign up with email"),
+                  mSmallText(text: "or register with email"),
                 ],
               ),
               SizedBox(height: Dimension.height20),
               //TextFields
               Column(
                 children: [
-                  //Username
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      mBigText(text: "Username", fontSize: 18),
-                      SizedBox(height: Dimension.height10),
-                      AppTextField(
-                          textEditingController: usernameController,
-                          text: "User"),
-                    ],
-                  ),
-                  SizedBox(height: Dimension.height20),
                   //Email
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,8 +114,24 @@ class SignUpScreen extends StatelessWidget {
                       mBigText(text: "Email", fontSize: 18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
-                          textEditingController: emailController,
-                          text: "example@mail.com"),
+                        textEditingController: emailController,
+                        text: "example@mail.com",
+                        icon: FontAwesomeIcons.solidEnvelope,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: Dimension.height20),
+                  //Name & Surname
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      mBigText(text: "Name & Surname", fontSize: 18),
+                      SizedBox(height: Dimension.height10),
+                      AppTextField(
+                        textEditingController: nameController,
+                        text: "Name",
+                        icon: FontAwesomeIcons.solidUser,
+                      ),
                     ],
                   ),
                   SizedBox(height: Dimension.height20),
@@ -110,9 +142,10 @@ class SignUpScreen extends StatelessWidget {
                       mBigText(text: "Password", fontSize: 18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
-                          textEditingController: passwordController,
-                          text: "*******",
-                          isObscure: true,
+                        textEditingController: passwordController,
+                        text: "*******",
+                        isObscure: true,
+                        icon: FontAwesomeIcons.lock,
                       ),
                     ],
                   ),
@@ -127,6 +160,7 @@ class SignUpScreen extends StatelessWidget {
                         textEditingController: confirmPasswordController,
                         text: "*******",
                         isObscure: true,
+                        icon: FontAwesomeIcons.lock,
                       ),
                     ],
                   ),
@@ -134,8 +168,8 @@ class SignUpScreen extends StatelessWidget {
               ),
               SizedBox(height: Dimension.height40),
               mButton(
-                press: () {},
-                text: "Sign Up",
+                press: _register,
+                text: "Register",
                 width: double.maxFinite,
                 height: 65,
                 textColor: Colors.white,
@@ -146,15 +180,15 @@ class SignUpScreen extends StatelessWidget {
               ),
               RichText(
                 text: TextSpan(
-                    text: "Have an account? ",
-                    style: TextStyle(color: AppColors.textColor2),
+                    text: "Do you have an account already? ",
+                    style: TextStyle(color: AppColors.textColor),
                     children: [
                       TextSpan(
-                        recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignInScreen(), transition: Transition.fade),
+                        recognizer: TapGestureRecognizer()..onTap=()=>Get.back(),
                         text: "Login",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppColors.buttonColor,
+                          color: AppColors.buttonColor2,
                         ),
                       ),
                     ]

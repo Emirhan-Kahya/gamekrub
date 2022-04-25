@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/widgets/mBigText.dart';
 
 class mButton extends StatelessWidget {
@@ -12,11 +13,11 @@ class mButton extends StatelessWidget {
     required this.press,
     this.height = 50,
     this.width = 100,
-    this.backgroundColor = const Color(0xFF191E3A),
+    this.backgroundColor = const Color(0xFF1B55E2),
     this.textColor = Colors.white,
     required this.text,
     this.textSize = 24,
-    this.radius = 16,
+    this.radius = 7,
     this.isPressed = false,
   }) : super(key: key);
 
@@ -28,15 +29,8 @@ class mButton extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(radius),
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF191E3A).withOpacity(0.8),
-              Color(0xFF191E3A)
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
         ),
         child: Center(
           child: mBigText(text: text, color: textColor, fontSize: textSize),

@@ -25,7 +25,8 @@ class AccountScreen extends StatelessWidget {
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                    color: Colors.grey.withOpacity(0.1),
+                    image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage("assets/images/card_bacground.jpg"),
                   )
@@ -49,7 +50,7 @@ class AccountScreen extends StatelessWidget {
                       SizedBox(width: Dimension.width10),
                       mBigText(text: "Sign In/Register", fontSize: Dimension.fontSize16, color: Colors.white,),
                       Expanded(child: Container()),
-                      Icon(FontAwesomeIcons.angleRight, color: Colors.white, size: Dimension.icon16,),
+                      Icon(FontAwesomeIcons.angleRight, color: Colors.white, size: Dimension.icon18,),
                     ],
                   ),
                 ),

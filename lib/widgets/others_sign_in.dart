@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gamekrub/utils/colors.dart';
+import 'package:gamekrub/utils/dimension.dart';
+import 'package:gamekrub/widgets/mSmallText.dart';
 
 
 class OtherSignMethods extends StatelessWidget {
   final VoidCallback press;
   final IconData icons;
-  Color? backgroundColor, iconColor;
+  Color? color;
+  final String text;
   final double height, width, iconSize;
 
   OtherSignMethods({
     Key? key,
     required this.press,
     required this.icons,
-    this.iconColor = const Color(0xFFAEBED9),
-    this.backgroundColor = const Color(0xFFE0E6ED),
+    this.color = const Color(0xFF3B3F5C),
     this.height = 50,
     this.width = 100,
-    this.iconSize = 24,
+    this.iconSize = 16,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -27,13 +31,21 @@ class OtherSignMethods extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: backgroundColor,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
+          border: Border.all(width: 1, color: AppColors.textColor2)
         ),
-        child: Icon(
-          icons,
-          size: iconSize,
-          color: iconColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icons,
+              size: iconSize,
+              color: color,
+            ),
+            SizedBox(width: Dimension.width5),
+            mSmallText(text: text, color: color, fontSize: Dimension.fontSize16,),
+          ],
         ),
       ),
     );

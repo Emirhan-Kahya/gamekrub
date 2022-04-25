@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gamekrub/screens/home/home_screen.dart';
 import 'package:get/get.dart';
 
 //screens
 import 'package:gamekrub/screens/auth_screens/sign_in_screen.dart';
-
+import 'package:gamekrub/screens/home/home_screen.dart';
 
 
 void main() {
@@ -21,7 +20,7 @@ class mainApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen()
+      home: SignInScreen()
     );
   }
 }
