@@ -20,7 +20,7 @@ class mainApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignInScreen()
+      home: HomeScreen()
     );
   }
 }
