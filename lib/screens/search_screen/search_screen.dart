@@ -30,10 +30,10 @@ class _SearchScreenState extends State<SearchScreen> {
               },
               child: Icon(FontAwesomeIcons.angleLeft),
             ),
-            SizedBox(width: Dimension.width20),
+            SizedBox(width: Dimension.width10),
             Container(
               height: Dimension.height40,
-              width: Dimension.screenWidth / 1.6,
+              width: Dimension.screenWidth / 1.5,
               padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimension.radius30),
@@ -55,7 +55,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
-            SizedBox(width: Dimension.width40),
+            SizedBox(width: Dimension.width20),
             GestureDetector(
               onTap: (){},
               child: Icon(FontAwesomeIcons.magnifyingGlass),
