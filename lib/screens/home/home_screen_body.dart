@@ -39,6 +39,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                   Get.to(
                     () => SearchScreen(),
                     transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 300)
                   );
                 },
               ),

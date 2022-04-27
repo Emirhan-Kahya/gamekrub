@@ -78,9 +78,8 @@ class AccountScreen extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(Dimension.radius15),
-                      topLeft: Radius.circular(Dimension.radius15),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(Dimension.radius15),
                     ),
                   ),
                   child: Column(

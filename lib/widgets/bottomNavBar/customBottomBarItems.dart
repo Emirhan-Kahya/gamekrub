@@ -22,18 +22,10 @@ class mBottomBarItem extends StatelessWidget {
         height: Dimension.height50,
         decoration: isSelected ? BoxDecoration(
             border: Border(
-              bottom: BorderSide(width: 4, color: AppColors.iconColor)
+              top: BorderSide(width: 2, color: AppColors.iconColor)
             ),
-            gradient: LinearGradient(
-            colors: [
-              AppColors.iconColor.withOpacity(0.25),
-              AppColors.iconColor.withOpacity(0.015),
-            ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-          )
         ) : BoxDecoration(),
-        child: Icon(icon, color: isSelected ? AppColors.iconColor : Colors.grey.shade400),
+        child: Icon(icon, color: isSelected ? AppColors.iconColor : Colors.grey.shade300),
       ),
     );
   }

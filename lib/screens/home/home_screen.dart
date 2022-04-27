@@ -17,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  List pages = [
+  List _pages = [
     HomeScreenBody(),
     Center(child: Text("Category")),
     Center(child: Text("Marketplace")),
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: _pages[_selectedIndex],
       bottomNavigationBar: _buildBottomBar()
     );
   }
@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SizedBox(
       width: double.maxFinite,
       child: Container(
+        padding: EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [

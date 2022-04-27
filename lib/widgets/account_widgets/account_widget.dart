@@ -20,7 +20,7 @@ class AccountButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(Dimension.radius15 / 2)
+            borderRadius: BorderRadius.circular(Dimension.radius15)
         ),
         child: Row(
           children: [
