@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gamekrub/models/special_deals_model.dart';
+import 'package:gamekrub/models/popular_games_model.dart';
 import 'package:gamekrub/screens/search_screen/search_screen.dart';
 import 'package:gamekrub/utils/colors.dart';
 import 'package:gamekrub/widgets/mBigText.dart';
@@ -27,7 +27,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Container(
-        margin: EdgeInsets.only(top: Dimension.height40),
+        padding: EdgeInsets.only(top: Dimension.height40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -103,13 +103,78 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ),
             SizedBox(height: Dimension.height5),
             Container(
-              height: 230,
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
               child: ListView.builder(
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemCount: specialData.length,
+                itemCount: popularGamesList.length,
                 itemBuilder: (context, index) {
-                  return _buildListViewItem(index);
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+                },
+              ),
+            ),
+            //Popular Games
+            SizedBox(height: Dimension.height40),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  mSmallText(text: "Popular Streaming", color: AppColors.textColor),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.angleRight,
+                      size: Dimension.icon18,
+                      color: AppColors.textColor2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: Dimension.height5),
+            Container(
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: popularGamesList.length,
+                itemBuilder: (context, index) {
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+                },
+              ),
+            ),
+            //Popular Games
+            SizedBox(height: Dimension.height40),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  mSmallText(text: "Marketplace", color: AppColors.textColor),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.angleRight,
+                      size: Dimension.icon18,
+                      color: AppColors.textColor2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: Dimension.height5),
+            Container(
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: popularGamesList.length,
+                itemBuilder: (context, index) {
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
                 },
               ),
             ),
@@ -119,10 +184,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     );
   }
 
-  Widget _buildListViewItem(int index) {
+  Widget _buildListViewItem({required String name, required String description, required String price, required String img}) {
     return Container(
       margin: EdgeInsets.only(top: Dimension.height10, bottom: Dimension.height10, left: Dimension.width20),
-      width: 200,
+      width: Dimension.width100 * 1.8,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(Dimension.radius15),
@@ -140,8 +205,8 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           Positioned(
             bottom: 0,
             child: Container(
-              height: 100,
-              width: 200,
+              height: Dimension.height100,
+              width: Dimension.width100 * 1.8,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(
@@ -155,9 +220,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(specialData[index].name),
+                        Text(name),
                         SizedBox(height: Dimension.height5 / 3),
-                        Text(specialData[index].description),
+                        Text(description),
                       ],
                     ),
                     Positioned(
@@ -169,7 +234,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                         children: [
                           Container(height: 1, color: Colors.black12,),
                           SizedBox(height: Dimension.height5),
-                          Text("\$ " + specialData[index].price.toString()),
+                          Text("\$ " + price),
                         ],
                       ),
                     ),
@@ -186,9 +251,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             child: ClipRRect(
               borderRadius: BorderRadius.vertical(top: Radius.circular(Dimension.radius15)),
               child: Image(
-                height: 110,
-                width: 200,
-                image: NetworkImage(specialData[index].img),
+                height: Dimension.height100 + Dimension.height10,
+                width: Dimension.width100 * 2,
+                image: NetworkImage(img),
                 fit: BoxFit.cover,
               ),
             ),

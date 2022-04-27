@@ -32,7 +32,7 @@ class CategoryButton extends StatelessWidget {
             ),
           ),
           SizedBox(height: Dimension.height5),
-          mSmallText(text: text, fontWeight: FontWeight.w600,fontSize: 12),
+          mSmallText(text: text, fontWeight: FontWeight.w600,fontSize: Dimension.fontSize12),
         ],
       ),
     );

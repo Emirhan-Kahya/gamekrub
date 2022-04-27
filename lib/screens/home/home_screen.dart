@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/screens/account/account_screen.dart';
 import 'package:gamekrub/screens/home/home_screen_body.dart';
+import 'package:gamekrub/utils/dimension.dart';
 
-import '../../widgets/customBottomBarItems.dart';
+import '../../widgets/bottomNavBar/customBottomBarItems.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,63 +34,58 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBottomBar() {
-    return Container(
+    return SizedBox(
       width: double.maxFinite,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.shade400,
-              spreadRadius: 1,
+              color: Colors.grey.shade200,
               blurRadius: 1,
-              offset: Offset(1, 1),
+              offset: Offset(0, -1),
             ),
           ],
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              mBottomBarItem(
-                press: () {
-                  setState(() {
-                    _selectedIndex = 0;
-                  });
-                },
-                isSelected: _selectedIndex == 0,
-                icon: "assets/images/home.png",
-              ),
-              mBottomBarItem(
-                press: () {
-                  setState(() {
-                    _selectedIndex = 1;
-                  });
-                },
-                isSelected: _selectedIndex == 1,
-                icon: "assets/images/shopping-cart.png",
-              ),
-              mBottomBarItem(
-                press: () {
-                  setState(() {
-                    _selectedIndex = 2;
-                  });
-                },
-                isSelected: _selectedIndex == 2,
-                icon: "assets/images/heart.png",
-              ),
-              mBottomBarItem(
-                press: () {
-                  setState(() {
-                    _selectedIndex = 3;
-                  });
-                },
-                isSelected: _selectedIndex == 3,
-                icon: "assets/images/user.png",
-              ),
-            ],
-          ),
+        child: Row(
+          children: [
+            mBottomBarItem(
+              press: () {
+                setState(() {
+                  _selectedIndex = 0;
+                });
+              },
+              isSelected: _selectedIndex == 0,
+              icon: FontAwesomeIcons.house,
+            ),
+            mBottomBarItem(
+              press: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              },
+              isSelected: _selectedIndex == 1,
+              icon: FontAwesomeIcons.cartShopping,
+            ),
+            mBottomBarItem(
+              press: () {
+                setState(() {
+                  _selectedIndex = 2;
+                });
+              },
+              isSelected: _selectedIndex == 2,
+              icon: FontAwesomeIcons.solidHeart,
+            ),
+            mBottomBarItem(
+              press: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
+              },
+              isSelected: _selectedIndex == 3,
+              icon: FontAwesomeIcons.solidUser,
+            ),
+          ],
         ),
       ),
     );

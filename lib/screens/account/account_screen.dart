@@ -116,7 +116,8 @@ class AccountScreen extends StatelessWidget {
                                     ),
                                   ],
                                 );
-                              });
+                              },
+                          );
                         },
                         text: "My Wallet",
                         iconPrefix: FontAwesomeIcons.wallet,

@@ -111,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Email", fontSize: 18),
+                      mBigText(text: "Email", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                         textEditingController: emailController,
@@ -125,7 +125,7 @@ class SignUpScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Name & Surname", fontSize: 18),
+                      mBigText(text: "Name & Surname", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                         textEditingController: nameController,
@@ -139,7 +139,7 @@ class SignUpScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Password", fontSize: 18),
+                      mBigText(text: "Password", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                         textEditingController: passwordController,
@@ -154,7 +154,7 @@ class SignUpScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      mBigText(text: "Confirm Password", fontSize: 18),
+                      mBigText(text: "Confirm Password", fontSize: Dimension.fontSize18),
                       SizedBox(height: Dimension.height10),
                       AppTextField(
                         textEditingController: confirmPasswordController,
@@ -171,9 +171,9 @@ class SignUpScreen extends StatelessWidget {
                 press: _register,
                 text: "Register",
                 width: double.maxFinite,
-                height: 65,
+                height: Dimension.height20 * 3,
                 textColor: Colors.white,
-                textSize: 20,
+                textSize: Dimension.fontSize18,
               ),
               SizedBox(
                 height: Dimension.height10,

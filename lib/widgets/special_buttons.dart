@@ -33,7 +33,7 @@ class Specials extends StatelessWidget {
         child: mSmallText(
           text: text,
           color: Colors.white,
-          fontSize: 14,
+          fontSize: Dimension.fontSize16,
         ),
       ),
     );
