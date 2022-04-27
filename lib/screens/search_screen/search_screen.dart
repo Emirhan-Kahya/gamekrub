@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gamekrub/utils/colors.dart';
 import 'package:get/get.dart';
 
 import 'package:gamekrub/utils/dimension.dart';
@@ -28,7 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
               onTap: (){
                 Get.back();
               },
-              child: Icon(FontAwesomeIcons.angleLeft),
+              child: Icon(FontAwesomeIcons.angleLeft, color: AppColors.iconColor,),
             ),
             SizedBox(width: Dimension.width10),
             Container(
@@ -58,7 +59,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(width: Dimension.width20),
             GestureDetector(
               onTap: (){},
-              child: Icon(FontAwesomeIcons.magnifyingGlass),
+              child: Icon(FontAwesomeIcons.magnifyingGlass, color: AppColors.iconColor,),
             ),
           ],
         ),

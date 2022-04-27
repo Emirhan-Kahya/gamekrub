@@ -39,7 +39,7 @@ class SearchBarButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(FontAwesomeIcons.magnifyingGlass, size: Dimension.icon24, color: AppColors.textColor2),
+            Icon(FontAwesomeIcons.magnifyingGlass, size: Dimension.icon16, color: AppColors.textColor2),
             SizedBox(width: Dimension.width10),
             mSmallText(text: "Search", letterSpacing: 0, fontWeight: FontWeight.w500),
           ],

@@ -27,8 +27,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Container(
-        margin: EdgeInsets.only(
-            top: Dimension.height40, bottom: Dimension.height20),
+        margin: EdgeInsets.only(top: Dimension.height40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,7 +57,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               ),
             ),
             //Categories
-            SizedBox(height: Dimension.height40),
+            SizedBox(height: Dimension.height20),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
@@ -95,16 +94,16 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                     onTap: () {},
                     child: Icon(
                       FontAwesomeIcons.angleRight,
-                      size: Dimension.icon24,
+                      size: Dimension.icon18,
                       color: AppColors.textColor2,
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: Dimension.height20),
+            SizedBox(height: Dimension.height5),
             Container(
-              height: 110,
+              height: 230,
               child: ListView.builder(
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -122,60 +121,81 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
 
   Widget _buildListViewItem(int index) {
     return Container(
-                  margin: EdgeInsets.only(left: Dimension.width20, top: Dimension.height10, bottom: Dimension.height10),
-                  width: 340,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        right: 10,
-                        child: Container(
-                          height: 100,
-                          width: 180,
-                          padding: EdgeInsets.symmetric(horizontal: Dimension.width20, vertical: Dimension.height10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.only(
-                                  topRight: Radius.circular(Dimension.radius15),
-                                  bottomRight: Radius.circular(Dimension.radius15),
-                                ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              mBigText(text: specialData[index].name, fontSize: 13),
-                              SizedBox(height: Dimension.height5),
-                              mBigText(text: specialData[index].description, fontSize: 12, color: AppColors.textColor.withOpacity(0.7)),
-                            ],
-                          ),
-                        ),
+      margin: EdgeInsets.only(top: Dimension.height10, bottom: Dimension.height10, left: Dimension.width20),
+      width: 200,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(Dimension.radius15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            offset: Offset(0, 2),
+            blurRadius: 2,
+          ),
+        ]
+      ),
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Positioned(
+            bottom: 0,
+            child: Container(
+              height: 100,
+              width: 200,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(Dimension.radius15),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Stack(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(specialData[index].name),
+                        SizedBox(height: Dimension.height5 / 3),
+                        Text(specialData[index].description),
+                      ],
+                    ),
+                    Positioned(
+                      bottom: 5,
+                      left: 0,
+                      right: 0,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 1, color: Colors.black12,),
+                          SizedBox(height: Dimension.height5),
+                          Text("\$ " + specialData[index].price.toString()),
+                        ],
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius:
-                          BorderRadius.only(
-                            topLeft: Radius.circular(Dimension.radius15),
-                            bottomLeft: Radius.circular(Dimension.radius15),
-                          ),
-                        ),
-                        child: ClipRRect(
-                          borderRadius:
-                          BorderRadius.only(
-                            topLeft: Radius.circular(Dimension.radius15),
-                            bottomLeft: Radius.circular(Dimension.radius15),
-                          ),
-                          child: Image(
-                            image: NetworkImage(specialData[index].img),
-                            width: 160,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(Dimension.radius15),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(Dimension.radius15)),
+              child: Image(
+                height: 110,
+                width: 200,
+                image: NetworkImage(specialData[index].img),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildPageItem(int index) {

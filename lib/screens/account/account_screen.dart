@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/widgets/account_widgets/account_widget.dart';
 import 'package:gamekrub/widgets/mBigText.dart';
-import 'package:gamekrub/widgets/showModal/modal.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -13,23 +12,24 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          width: double.maxFinite,
+          width: double.infinity,
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
               Positioned(
                 top: 0,
-                left: 0,
                 right: 0,
+                left: 0,
                 child: Container(
                   height: Dimension.height100 * 2 + Dimension.height20,
                   width: double.maxFinite,
                   padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
                   decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
+                      color: Colors.grey.shade100,
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage("assets/images/card_bacground.jpg"),
@@ -77,7 +77,7 @@ class AccountScreen extends StatelessWidget {
                 bottom: 0,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
+                    color: Colors.grey.shade100,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(Dimension.radius15),
                       topLeft: Radius.circular(Dimension.radius15),
