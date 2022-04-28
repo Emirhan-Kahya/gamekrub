@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-//screen
-import 'package:gamekrub/screens/auth_screens/sign_up_screen.dart';
-
 //utils
 import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/utils/colors.dart';
@@ -52,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Container(
           margin: EdgeInsets.only(
             top: Dimension.height40 * 1.5,

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/screens/account/account_screen.dart';
 import 'package:gamekrub/screens/home/home_screen_body.dart';
-import 'package:gamekrub/utils/dimension.dart';
 
 import '../../widgets/bottomNavBar/customBottomBarItems.dart';
 
@@ -17,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  List _pages = [
+  final List _pages = [
     HomeScreenBody(),
     Center(child: Text("Category")),
     Center(child: Text("Marketplace")),
@@ -44,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BoxShadow(
               color: Colors.grey.shade200,
               blurRadius: 1,
-              offset: Offset(0, -1),
+              offset: const Offset(0, -1),
             ),
           ],
         ),

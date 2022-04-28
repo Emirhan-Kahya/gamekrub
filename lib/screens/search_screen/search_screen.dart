@@ -32,31 +32,32 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Icon(FontAwesomeIcons.angleLeft, color: AppColors.iconColor,),
             ),
             SizedBox(width: Dimension.width10),
-            Container(
-              height: Dimension.height40,
-              width: Dimension.screenWidth / 1.55,
-              padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimension.radius30),
-                  border: Border.all(
-                      color: Colors.grey.withOpacity(0.5), width: 0.5)),
-              child: TextField(
-                keyboardType: TextInputType.text,
-                autocorrect: false,
-                decoration: InputDecoration(
-                  hintText: "Search",
-                  hintStyle: TextStyle(
-                    color: Colors.grey.withOpacity(0.5),
+            Expanded(
+              child: Container(
+                height: Dimension.height40,
+                padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimension.radius30),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.5), width: 0.5)),
+                child: TextField(
+                  keyboardType: TextInputType.text,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    hintText: "Search",
+                    hintStyle: TextStyle(
+                      color: Colors.black45,
+                    ),
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
                   ),
-                  border: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
                 ),
               ),
             ),
-            SizedBox(width: Dimension.width20),
+            SizedBox(width: Dimension.width10),
             GestureDetector(
               onTap: (){},
               child: Icon(FontAwesomeIcons.magnifyingGlass, color: AppColors.iconColor,),

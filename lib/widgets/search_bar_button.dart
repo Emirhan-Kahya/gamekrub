@@ -14,7 +14,7 @@ class SearchBarButton extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        width: Dimension.screenWidth,
+        width: double.maxFinite,
         height: Dimension.height40,
         decoration: BoxDecoration(
             color: Colors.white,

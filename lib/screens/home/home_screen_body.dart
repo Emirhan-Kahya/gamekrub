@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/models/popular_games_model.dart';
 import 'package:gamekrub/screens/search_screen/search_screen.dart';
 import 'package:gamekrub/utils/colors.dart';
-import 'package:gamekrub/widgets/mBigText.dart';
 import 'package:gamekrub/widgets/mSmallText.dart';
 import 'package:get/get.dart';
 
@@ -116,7 +114,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               ),
             ),
             //Popular Games
-            SizedBox(height: Dimension.height40),
+            SizedBox(height: Dimension.height20),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
@@ -148,7 +146,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               ),
             ),
             //Popular Games
-            SizedBox(height: Dimension.height40),
+            SizedBox(height: Dimension.height20),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
@@ -215,7 +213,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(Dimension.height5),
                 child: Stack(
                   children: [
                     Column(
