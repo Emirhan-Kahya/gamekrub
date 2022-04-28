@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/screens/account/account_screen.dart';
 import 'package:gamekrub/screens/home/home_screen_body.dart';
+import 'package:gamekrub/utils/dimension.dart';
 
 import '../../widgets/bottomNavBar/customBottomBarItems.dart';
 
@@ -35,12 +36,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return SizedBox(
       width: double.maxFinite,
       child: Container(
-        padding: EdgeInsets.only(bottom: 8),
+        padding: EdgeInsets.only(bottom: Dimension.height20),
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.shade200,
+              color: Colors.black12,
               blurRadius: 1,
               offset: const Offset(0, -1),
             ),

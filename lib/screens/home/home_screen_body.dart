@@ -25,7 +25,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Container(
-        padding: EdgeInsets.only(top: Dimension.height40),
+        padding: EdgeInsets.only(top: Dimension.height50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,8 +45,8 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             SizedBox(height: Dimension.height20 / 1.5),
             //Slider
             Container(
-              height: Dimension.width150,
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              height: Dimension.height165,
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width15),
               child: PageView.builder(
                 pageSnapping: true,
                 itemCount: img.length,
@@ -56,7 +56,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               ),
             ),
             //Categories
-            SizedBox(height: Dimension.height20),
+            SizedBox(height: Dimension.height40),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
               child: Row(
@@ -253,7 +253,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 height: Dimension.height100 + Dimension.height10,
                 width: Dimension.width100 * 2,
                 image: NetworkImage(img),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -266,7 +266,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        margin: EdgeInsets.only(right: Dimension.width5),
+        margin: EdgeInsets.symmetric(horizontal: Dimension.width5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimension.radius15 / 2),
           image: DecorationImage(

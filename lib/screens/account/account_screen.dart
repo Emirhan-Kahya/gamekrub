@@ -12,8 +12,6 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = Get.context!.height;
-
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: SizedBox(
@@ -24,7 +22,7 @@ class AccountScreen extends StatelessWidget {
               right: 0,
               left: 0,
               child: Container(
-                height: Dimension.height100 * 2 + Dimension.height20,
+                height: Dimension.height100 * 3,
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
                 decoration: BoxDecoration(
@@ -70,7 +68,7 @@ class AccountScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: Dimension.height100 * 2,
+              top: Dimension.height100 * 3 - 20,
               left: 0,
               right: 0,
               bottom: 0,
