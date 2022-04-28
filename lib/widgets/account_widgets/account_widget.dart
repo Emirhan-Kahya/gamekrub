@@ -16,7 +16,7 @@ class AccountButton extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        height: Dimension.height50,
+        height: 50,
         padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
         decoration: BoxDecoration(
             color: Colors.white,

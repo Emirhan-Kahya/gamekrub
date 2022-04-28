@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List _pages = [
-    HomeScreenBody(),
+    SafeArea(child: HomeScreenBody()),
     Center(child: Text("Category")),
     Center(child: Text("Marketplace")),
     AccountScreen(),
@@ -33,10 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildBottomBar() {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      height: 50,
       child: Container(
-        padding: EdgeInsets.only(bottom: Dimension.height20),
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [

@@ -19,7 +19,7 @@ class mBottomBarItem extends StatelessWidget {
       onTap: press,
       child: Container(
         width: MediaQuery.of(context).size.width / 4,
-        height: Dimension.height50,
+        height: 50,
         decoration: isSelected ? BoxDecoration(
             border: Border(
               top: BorderSide(width: 2, color: AppColors.iconColor)

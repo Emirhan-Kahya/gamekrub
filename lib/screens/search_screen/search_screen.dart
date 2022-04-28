@@ -34,7 +34,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(width: Dimension.width10),
             Expanded(
               child: Container(
-                height: Dimension.height40,
+                height: Dimension.height50,
                 padding: EdgeInsets.symmetric(horizontal: Dimension.width20),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimension.radius30),

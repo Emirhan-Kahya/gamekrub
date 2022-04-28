@@ -10,6 +10,8 @@ import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/widgets/categories.dart';
 import 'package:gamekrub/widgets/search_bar_button.dart';
 
+import '../../widgets/mBigText.dart';
+
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({Key? key}) : super(key: key);
 
@@ -24,161 +26,158 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      child: Container(
-        padding: EdgeInsets.only(top: Dimension.height50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //Search
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              child: SearchBarButton(
-                press: () {
-                  Get.to(
-                    () => SearchScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 300)
-                  );
-                },
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //Search
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+            child: SearchBarButton(
+              press: () {
+                Get.to(
+                  () => SearchScreen(),
+                  transition: Transition.rightToLeftWithFade,
+                  duration: const Duration(milliseconds: 300)
+                );
+              },
             ),
-            SizedBox(height: Dimension.height20 / 1.5),
-            //Slider
-            Container(
-              height: Dimension.height165,
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width15),
-              child: PageView.builder(
-                pageSnapping: true,
-                itemCount: img.length,
-                itemBuilder: (context, index) {
-                  return _buildPageItem(index);
-                },
-              ),
+          ),
+          SizedBox(height: Dimension.height20 / 1.5),
+          //Slider
+          Container(
+            height: Dimension.height165,
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width15),
+            child: PageView.builder(
+              pageSnapping: true,
+              itemCount: img.length,
+              itemBuilder: (context, index) {
+                return _buildPageItem(index);
+              },
             ),
-            //Categories
-            SizedBox(height: Dimension.height40),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CategoryButton(
-                      press: () {},
-                      text: "Games",
-                      img: "assets/images/games.png"),
-                  CategoryButton(
-                      press: () {},
-                      text: "Marketplace",
-                      img: "assets/images/marketplace2.png"),
-                  CategoryButton(
-                      press: () {},
-                      text: "Stream",
-                      img: "assets/images/stream.png"),
-                  CategoryButton(
-                      press: () {},
-                      text: "Steam",
-                      img: "assets/images/steam.png"),
-                ],
-              ),
+          ),
+          //Categories
+          SizedBox(height: Dimension.height40),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CategoryButton(
+                    press: () {},
+                    text: "Games",
+                    img: "assets/images/games.png"),
+                CategoryButton(
+                    press: () {},
+                    text: "Marketplace",
+                    img: "assets/images/marketplace2.png"),
+                CategoryButton(
+                    press: () {},
+                    text: "Stream",
+                    img: "assets/images/stream.png"),
+                CategoryButton(
+                    press: () {},
+                    text: "Steam",
+                    img: "assets/images/steam.png"),
+              ],
             ),
-            //Popular Games
-            SizedBox(height: Dimension.height40),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  mSmallText(text: "Popular Games", color: AppColors.textColor),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.angleRight,
-                      size: Dimension.icon18,
-                      color: AppColors.textColor2,
-                    ),
+          ),
+          //Popular Games
+          SizedBox(height: Dimension.height40),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                mSmallText(text: "Popular Games", color: AppColors.textColor),
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    FontAwesomeIcons.angleRight,
+                    size: Dimension.icon18,
+                    color: AppColors.textColor2,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: Dimension.height5),
-            Container(
-              height: Dimension.height100 * 2 + Dimension.height10 * 3,
-              child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: popularGamesList.length,
-                itemBuilder: (context, index) {
-                  PopularGamesModel popularGames = popularGamesList[index];
-                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-                },
-              ),
+          ),
+          SizedBox(height: Dimension.height5),
+          SizedBox(
+            height: Dimension.height100 * 2 + Dimension.height10 * 3,
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: popularGamesList.length,
+              itemBuilder: (context, index) {
+                PopularGamesModel popularGames = popularGamesList[index];
+                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+              },
             ),
-            //Popular Games
-            SizedBox(height: Dimension.height20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  mSmallText(text: "Popular Streaming", color: AppColors.textColor),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.angleRight,
-                      size: Dimension.icon18,
-                      color: AppColors.textColor2,
-                    ),
+          ),
+          //Popular Streaming
+          SizedBox(height: Dimension.height20),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                mSmallText(text: "Popular Streaming", color: AppColors.textColor),
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    FontAwesomeIcons.angleRight,
+                    size: Dimension.icon18,
+                    color: AppColors.textColor2,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: Dimension.height5),
-            Container(
-              height: Dimension.height100 * 2 + Dimension.height10 * 3,
-              child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: popularGamesList.length,
-                itemBuilder: (context, index) {
-                  PopularGamesModel popularGames = popularGamesList[index];
-                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-                },
-              ),
+          ),
+          SizedBox(height: Dimension.height5),
+          SizedBox(
+            height: Dimension.height100 * 2 + Dimension.height10 * 3,
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: popularGamesList.length,
+              itemBuilder: (context, index) {
+                PopularGamesModel popularGames = popularGamesList[index];
+                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+              },
             ),
-            //Popular Games
-            SizedBox(height: Dimension.height20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  mSmallText(text: "Marketplace", color: AppColors.textColor),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      FontAwesomeIcons.angleRight,
-                      size: Dimension.icon18,
-                      color: AppColors.textColor2,
-                    ),
+          ),
+          //Marketplace
+          SizedBox(height: Dimension.height20),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                mSmallText(text: "Marketplace", color: AppColors.textColor),
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    FontAwesomeIcons.angleRight,
+                    size: Dimension.icon18,
+                    color: AppColors.textColor2,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: Dimension.height5),
-            Container(
-              height: Dimension.height100 * 2 + Dimension.height10 * 3,
-              child: ListView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: popularGamesList.length,
-                itemBuilder: (context, index) {
-                  PopularGamesModel popularGames = popularGamesList[index];
-                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-                },
-              ),
+          ),
+          SizedBox(height: Dimension.height5),
+          SizedBox(
+            height: Dimension.height100 * 2 + Dimension.height10 * 3,
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: popularGamesList.length,
+              itemBuilder: (context, index) {
+                PopularGamesModel popularGames = popularGamesList[index];
+                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -219,13 +218,13 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(name),
+                        mBigText(text:name, fontSize: Dimension.fontSize16,),
                         SizedBox(height: Dimension.height5 / 3),
-                        Text(description),
+                        mBigText(text:description, fontSize: Dimension.fontSize14,),
                       ],
                     ),
                     Positioned(
-                      bottom: 5,
+                      bottom: Dimension.height5,
                       left: 0,
                       right: 0,
                       child: Column(
@@ -233,7 +232,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                         children: [
                           Container(height: 1, color: Colors.black12,),
                           SizedBox(height: Dimension.height5),
-                          Text("\$ " + price),
+                          mBigText(text:"\$ " + price, fontSize: Dimension.fontSize16, color: Colors.red,),
                         ],
                       ),
                     ),
