@@ -15,7 +15,7 @@ class SearchBarButton extends StatelessWidget {
       onTap: press,
       child: Container(
         width: double.maxFinite,
-        height: Dimension.height40,
+        height: Dimension.height50,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(Dimension.radius15 / 2),

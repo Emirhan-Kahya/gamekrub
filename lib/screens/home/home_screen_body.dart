@@ -26,158 +26,161 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          //Search
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-            child: SearchBarButton(
-              press: () {
-                Get.to(
-                  () => SearchScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 300)
-                );
-              },
+      child: Padding(
+        padding: EdgeInsets.only(top: Dimension.height20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //Search
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: SearchBarButton(
+                press: () {
+                  Get.to(
+                    () => SearchScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 300)
+                  );
+                },
+              ),
             ),
-          ),
-          SizedBox(height: Dimension.height20 / 1.5),
-          //Slider
-          Container(
-            height: Dimension.height165,
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width15),
-            child: PageView.builder(
-              pageSnapping: true,
-              itemCount: img.length,
-              itemBuilder: (context, index) {
-                return _buildPageItem(index);
-              },
+            SizedBox(height: Dimension.height20 / 1.5),
+            //Slider
+            Container(
+              height: Dimension.height165,
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width15),
+              child: PageView.builder(
+                pageSnapping: true,
+                itemCount: img.length,
+                itemBuilder: (context, index) {
+                  return _buildPageItem(index);
+                },
+              ),
             ),
-          ),
-          //Categories
-          SizedBox(height: Dimension.height40),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CategoryButton(
-                    press: () {},
-                    text: "Games",
-                    img: "assets/images/games.png"),
-                CategoryButton(
-                    press: () {},
-                    text: "Marketplace",
-                    img: "assets/images/marketplace2.png"),
-                CategoryButton(
-                    press: () {},
-                    text: "Stream",
-                    img: "assets/images/stream.png"),
-                CategoryButton(
-                    press: () {},
-                    text: "Steam",
-                    img: "assets/images/steam.png"),
-              ],
+            //Categories
+            SizedBox(height: Dimension.height40),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CategoryButton(
+                      press: () {},
+                      text: "Games",
+                      img: "assets/images/games.png"),
+                  CategoryButton(
+                      press: () {},
+                      text: "Marketplace",
+                      img: "assets/images/marketplace2.png"),
+                  CategoryButton(
+                      press: () {},
+                      text: "Stream",
+                      img: "assets/images/stream.png"),
+                  CategoryButton(
+                      press: () {},
+                      text: "Steam",
+                      img: "assets/images/steam.png"),
+                ],
+              ),
             ),
-          ),
-          //Popular Games
-          SizedBox(height: Dimension.height40),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                mSmallText(text: "Popular Games", color: AppColors.textColor),
-                GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    FontAwesomeIcons.angleRight,
-                    size: Dimension.icon18,
-                    color: AppColors.textColor2,
+            //Popular Games
+            SizedBox(height: Dimension.height40),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  mSmallText(text: "Popular Games", color: AppColors.textColor),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.angleRight,
+                      size: Dimension.icon18,
+                      color: AppColors.textColor2,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: Dimension.height5),
-          SizedBox(
-            height: Dimension.height100 * 2 + Dimension.height10 * 3,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: popularGamesList.length,
-              itemBuilder: (context, index) {
-                PopularGamesModel popularGames = popularGamesList[index];
-                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-              },
+            SizedBox(height: Dimension.height5),
+            SizedBox(
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: popularGamesList.length,
+                itemBuilder: (context, index) {
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+                },
+              ),
             ),
-          ),
-          //Popular Streaming
-          SizedBox(height: Dimension.height20),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                mSmallText(text: "Popular Streaming", color: AppColors.textColor),
-                GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    FontAwesomeIcons.angleRight,
-                    size: Dimension.icon18,
-                    color: AppColors.textColor2,
+            //Popular Streaming
+            SizedBox(height: Dimension.height20),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  mSmallText(text: "Popular Streaming", color: AppColors.textColor),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.angleRight,
+                      size: Dimension.icon18,
+                      color: AppColors.textColor2,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: Dimension.height5),
-          SizedBox(
-            height: Dimension.height100 * 2 + Dimension.height10 * 3,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: popularGamesList.length,
-              itemBuilder: (context, index) {
-                PopularGamesModel popularGames = popularGamesList[index];
-                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-              },
+            SizedBox(height: Dimension.height5),
+            SizedBox(
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: popularGamesList.length,
+                itemBuilder: (context, index) {
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+                },
+              ),
             ),
-          ),
-          //Marketplace
-          SizedBox(height: Dimension.height20),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                mSmallText(text: "Marketplace", color: AppColors.textColor),
-                GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                    FontAwesomeIcons.angleRight,
-                    size: Dimension.icon18,
-                    color: AppColors.textColor2,
+            //Marketplace
+            SizedBox(height: Dimension.height20),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimension.width20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  mSmallText(text: "Marketplace", color: AppColors.textColor),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Icon(
+                      FontAwesomeIcons.angleRight,
+                      size: Dimension.icon18,
+                      color: AppColors.textColor2,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: Dimension.height5),
-          SizedBox(
-            height: Dimension.height100 * 2 + Dimension.height10 * 3,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: popularGamesList.length,
-              itemBuilder: (context, index) {
-                PopularGamesModel popularGames = popularGamesList[index];
-                return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
-              },
+            SizedBox(height: Dimension.height5),
+            SizedBox(
+              height: Dimension.height100 * 2 + Dimension.height10 * 3,
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: popularGamesList.length,
+                itemBuilder: (context, index) {
+                  PopularGamesModel popularGames = popularGamesList[index];
+                  return _buildListViewItem(img: popularGames.img.toString(), name: popularGames.name.toString(), description: popularGames.description.toString(), price: popularGames.price.toString());
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
