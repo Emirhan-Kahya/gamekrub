@@ -31,7 +31,7 @@ class AccountScreen extends StatelessWidget {
                       color: Colors.grey.shade100,
                       image: const DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage("assets/images/card_bacground.jpg"),
+                        image: AssetImage("assets/images/card_background.jpg"),
                       )),
                   child: GestureDetector(
                     onTap: () {

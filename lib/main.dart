@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gamekrub/screens/all_detail_screens/all_games.dart';
 import 'package:gamekrub/screens/detail_screens/game_detail_screen.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +30,7 @@ class mainApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen()
+      home: AllGamesScreen()
     );
   }
 }
