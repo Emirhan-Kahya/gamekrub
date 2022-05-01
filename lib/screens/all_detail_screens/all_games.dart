@@ -55,18 +55,18 @@ class _AllGamesScreenState extends State<AllGamesScreen> {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               crossAxisSpacing: Dimension.width10 * 2,
-              childAspectRatio: 150 / 270,
+              childAspectRatio: Dimension.screenWidth / Dimension.screenHeight / 0.8,
               mainAxisSpacing: Dimension.height10 * 3,
             ),
             itemBuilder: (context, index) {
               return Container(
                 child: Column(
                   children: [
-                    Stack(
+                      Stack(
                       alignment: Alignment.topCenter,
                       children: [
                         Container(
-                          height: 150,
+                          height: Dimension.height150,
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimension.radius15),
@@ -90,7 +90,6 @@ class _AllGamesScreenState extends State<AllGamesScreen> {
                           text: "Counter Strikedsadsadasdsadsadsa".replaceAll('', '\u200B'),
                           color: AppColors.textColor,
                           fontSize: Dimension.fontSize14,
-                          maxLines: 2,
                         ),
                       ],
                     ),
