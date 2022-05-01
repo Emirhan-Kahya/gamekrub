@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/dimension.dart';
-import 'mSmallText.dart';
+import 'text_widgets/mSmallText.dart';
 
 class CategoryButton extends StatelessWidget {
   final VoidCallback press;

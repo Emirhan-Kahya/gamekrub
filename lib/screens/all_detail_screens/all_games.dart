@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/utils/colors.dart';
 import 'package:gamekrub/utils/dimension.dart';
-import 'package:gamekrub/widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
 
 class AllGamesScreen extends StatefulWidget {
   const AllGamesScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _AllGamesScreenState extends State<AllGamesScreen> {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: (){},
+          onPressed: () {},
           icon: Icon(
             FontAwesomeIcons.bars,
             color: AppColors.iconColor,
@@ -44,58 +45,59 @@ class _AllGamesScreenState extends State<AllGamesScreen> {
           ),
         ],
       ),
-      body: SizedBox(
-        width: double.maxFinite,
-        height: double.maxFinite,
+      body: Padding(
+        padding: EdgeInsets.only(
+            top: Dimension.height20,
+            left: Dimension.width20,
+            right: Dimension.width20),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            childAspectRatio: 2 / 3
-          ),
-          shrinkWrap: true,
-          itemCount: 12,
-          itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimension.radius15),
-                color: Colors.red,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage("https://cdn.cloudflare.steamstatic.com/steam/apps/730/library_600x900.jpg?t=1585695935"),
-                )
-              ),
-              margin: EdgeInsets.only(top: Dimension.height20, left: Dimension.width10, right: Dimension.width10),
-              child: Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  Positioned(
-                    top: 15,
-                    child: Container(
+            itemCount: 12,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: Dimension.width10 * 2,
+              childAspectRatio: 150 / 270,
+              mainAxisSpacing: Dimension.height10 * 3,
+            ),
+            itemBuilder: (context, index) {
+              return Container(
+                child: Column(
+                  children: [
+                    Stack(
                       alignment: Alignment.topCenter,
-                      height: 5,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimension.radius15),
-                        color: Colors.white,
-                      ),
+                      children: [
+                        Container(
+                          height: 150,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(Dimension.radius15),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://cdn.cloudflare.steamstatic.com/steam/apps/730/hero_capsule.jpg?t=1604621079"),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                        Positioned(
+                          top: 10,
+                          child: Image.asset("assets/images/card_tool.png"),
+                        ),
+                      ],
                     ),
-                  ),
-                  Positioned(
-                    top: 10,
-                    child: Container(
-                      height: 8,
-                      width: 8,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimension.radius15),
-                        color: Colors.white,
-                      ),
+                    SizedBox(height: Dimension.height10),
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.start,
+                      children: [
+                        mBigText(
+                          text: "Counter Strikedsadsadasdsadsadsa".replaceAll('', '\u200B'),
+                          color: AppColors.textColor,
+                          fontSize: Dimension.fontSize14,
+                          maxLines: 2,
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+                  ],
+                ),
+              );
+            }),
       ),
     );
   }

@@ -3,14 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/models/popular_games_model.dart';
 import 'package:gamekrub/screens/search_screen/search_screen.dart';
 import 'package:gamekrub/utils/colors.dart';
-import 'package:gamekrub/widgets/mSmallText.dart';
+import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
 import 'package:get/get.dart';
 
 import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/widgets/categories.dart';
 import 'package:gamekrub/widgets/search_bar_button.dart';
 
-import '../../widgets/mBigText.dart';
+import '../../widgets/text_widgets/mBigText.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({Key? key}) : super(key: key);

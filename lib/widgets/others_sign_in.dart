@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/utils/colors.dart';
 import 'package:gamekrub/utils/dimension.dart';
-import 'package:gamekrub/widgets/mSmallText.dart';
+import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
 
 
 class OtherSignMethods extends StatelessWidget {

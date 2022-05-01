@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamekrub/utils/colors.dart';
 import 'package:gamekrub/utils/dimension.dart';
-import 'package:gamekrub/widgets/mBigText.dart';
-import 'package:gamekrub/widgets/mSmallText.dart';
+import 'package:gamekrub/widgets/text_widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
 
 class Specials extends StatelessWidget {
   final String text;

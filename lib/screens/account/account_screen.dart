@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/widgets/account_widgets/account_widget.dart';
-import 'package:gamekrub/widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mBigText.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);

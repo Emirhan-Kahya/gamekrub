@@ -4,6 +4,7 @@ class mBigText extends StatelessWidget {
   Color? color;
   final String text;
   double fontSize;
+  int? maxLines;
   TextOverflow overflow;
 
   mBigText({
@@ -11,6 +12,7 @@ class mBigText extends StatelessWidget {
     required this.text,
     this.color = const Color(0xFF3B3F5C),
     this.fontSize = 24,
+    this.maxLines = 1,
     this.overflow = TextOverflow.ellipsis,
   }) : super(key: key);
 
@@ -18,7 +20,7 @@ class mBigText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: 1,
+      maxLines: maxLines,
       overflow: overflow,
       style: TextStyle(
         color: color,

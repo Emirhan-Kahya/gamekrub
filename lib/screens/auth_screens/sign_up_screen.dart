@@ -8,9 +8,9 @@ import 'package:gamekrub/utils/dimension.dart';
 import 'package:gamekrub/utils/colors.dart';
 
 //widgets
-import 'package:gamekrub/widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mBigText.dart';
 import 'package:gamekrub/widgets/mButton.dart';
-import 'package:gamekrub/widgets/mSmallText.dart';
+import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
 import 'package:gamekrub/widgets/mTextField.dart';
 import 'package:gamekrub/widgets/others_sign_in.dart';
 

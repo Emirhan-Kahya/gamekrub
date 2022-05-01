@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/dimension.dart';
-import '../mBigText.dart';
+import '../text_widgets/mBigText.dart';
 
 class AccountButton extends StatelessWidget {
   final String text;

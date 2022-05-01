@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utils/colors.dart';
 import '../utils/dimension.dart';
-import 'mSmallText.dart';
+import 'text_widgets/mSmallText.dart';
 
 class SearchBarButton extends StatelessWidget {
   final VoidCallback press;

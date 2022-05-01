@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamekrub/utils/dimension.dart';
-import 'package:gamekrub/widgets/mBigText.dart';
+import 'package:gamekrub/widgets/text_widgets/mBigText.dart';
 
 class mButton extends StatelessWidget {
   final VoidCallback press;
