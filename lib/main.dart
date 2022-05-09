@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gamekrub/routes/route_helper.dart';
 import 'package:gamekrub/screens/all_detail_screens/all_games.dart';
+import 'package:gamekrub/screens/all_detail_screens/marketplace.dart';
 import 'package:gamekrub/screens/detail_screens/game_detail_screen.dart';
 import 'package:get/get.dart';
 
 //screens
 import 'package:gamekrub/screens/auth_screens/sign_in_screen.dart';
 import 'package:gamekrub/screens/home/home_screen.dart';
+import 'helper/dependencies.dart' as dep;
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   runApp(mainApp());
 }
 
@@ -26,11 +31,13 @@ class mainApp extends StatelessWidget {
     );
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Gamekrub',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AllGamesScreen()
+      //home: SignInScreen()
+      initialRoute: RouteHelper.getInitial(),
+      getPages: RouteHelper.routes,
     );
   }
 }

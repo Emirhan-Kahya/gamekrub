@@ -28,6 +28,7 @@ class AppTextField extends StatelessWidget {
         autocorrect: false,
         enableSuggestions: false,
         obscureText: isObscure ? true : false,
+        controller: textEditingController,
         decoration: InputDecoration(
           hintText: text,
           prefixIcon: Icon(icon, color: AppColors.textColor2, size: Dimension.icon24),

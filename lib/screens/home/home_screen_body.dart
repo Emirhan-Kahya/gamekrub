@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gamekrub/models/popular_games_model.dart';
+import 'package:gamekrub/screens/all_detail_screens/all_games.dart';
+import 'package:gamekrub/screens/all_detail_screens/marketplace.dart';
 import 'package:gamekrub/screens/search_screen/search_screen.dart';
 import 'package:gamekrub/utils/colors.dart';
 import 'package:gamekrub/widgets/text_widgets/mSmallText.dart';
@@ -65,11 +67,15 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CategoryButton(
-                      press: () {},
+                      press: () {
+                        Get.to(()=>AllGamesScreen());
+                      },
                       text: "Games",
                       img: "assets/images/games.png"),
                   CategoryButton(
-                      press: () {},
+                      press: () {
+                        Get.to(()=>MarketplaceScreen());
+                      },
                       text: "Marketplace",
                       img: "assets/images/marketplace2.png"),
                   CategoryButton(
